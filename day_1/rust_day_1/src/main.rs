@@ -1,7 +1,6 @@
-use std::collections::{BinaryHeap, HashMap};
+use std::collections::HashMap;
 use std::fs;
 use std::iter::zip;
-use std::path::absolute;
 
 fn read_lists_file(file_name: &str) -> (Vec<u32>, Vec<u32>) {
 	let file_path = format!("../{}", file_name);
