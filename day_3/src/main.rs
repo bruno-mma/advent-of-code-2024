@@ -25,7 +25,7 @@ fn sum_of_multiplications(input: &str) -> u32 {
 
 	re.captures_iter(input)
 		.map(|capture| capture.extract::<2>())
-		.map(|(_, groups)| (groups[0], groups[1]))
+		.map(|(_, [a, b])| (a, b))
 		.map(|(a, b)| (a.parse::<u32>().unwrap(), b.parse::<u32>().unwrap()))
 		.map(|(a, b)| a * b)
 		.sum()
@@ -41,7 +41,7 @@ fn sum_of_multiplications_only_allowed_regions(input: &str) -> u32 {
 		.map(|allowed_memory| re_mul.captures_iter(allowed_memory))
 		.flat_map(|capture_match| capture_match.into_iter())
 		.map(|capture| capture.extract::<2>())
-		.map(|(_, groups)| (groups[0], groups[1]))
+		.map(|(_, [a, b])| (a, b))
 		.map(|(a, b)| (a.parse::<u32>().unwrap(), b.parse::<u32>().unwrap()))
 		.map(|(a, b)| a * b)
 		.sum()
